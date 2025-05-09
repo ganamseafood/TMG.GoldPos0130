@@ -1,16 +1,22 @@
 
 let currentTable = "";
-let order = [];
+let orders = {};
 
 function selectTable(table) {
     currentTable = table;
+    if (!orders[currentTable]) {
+        orders[currentTable] = [];
+    }
     document.getElementById("currentTable").innerText = "선택된 테이블: " + table;
-    order = [];
     updateOrder();
 }
 
 function addItem(name, price) {
-    order.push({ name, price });
+    if (!currentTable) {
+        alert("먼저 테이블을 선택하세요.");
+        return;
+    }
+    orders[currentTable].push({ name, price });
     updateOrder();
 }
 
@@ -28,7 +34,8 @@ function updateOrder() {
     const list = document.getElementById("orderList");
     list.innerHTML = "";
     let total = 0;
-    for (let item of order) {
+    const tableOrder = orders[currentTable] || [];
+    for (let item of tableOrder) {
         const li = document.createElement("li");
         li.innerText = item.name + " - " + item.price.toLocaleString() + "원";
         list.appendChild(li);
@@ -38,6 +45,8 @@ function updateOrder() {
 }
 
 function clearOrder() {
-    order = [];
-    updateOrder();
+    if (currentTable && orders[currentTable]) {
+        orders[currentTable] = [];
+        updateOrder();
+    }
 }
