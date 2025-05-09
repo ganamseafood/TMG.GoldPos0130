@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>POS 시스템</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h1>POS 시스템</h1>
+    <div id="tables">
+        <h2>테이블 선택</h2>
+        <div>
+            <strong>좌식 테이블:</strong><br/>
+            <button onclick="selectTable('좌식1')">좌식 1</button><button onclick="selectTable('좌식2')">좌식 2</button><button onclick="selectTable('좌식3')">좌식 3</button><button onclick="selectTable('좌식4')">좌식 4</button><button onclick="selectTable('좌식5')">좌식 5</button><button onclick="selectTable('좌식6')">좌식 6</button><button onclick="selectTable('좌식7')">좌식 7</button><button onclick="selectTable('좌식8')">좌식 8</button>
+        </div>
+        <div>
+            <strong>룸:</strong><br/>
+            <button onclick="selectTable('1번룸')">1번룸</button>
+            <button onclick="selectTable('2번룸')">2번룸</button>
+            <button onclick="selectTable('3번룸')">3번룸</button>
+        </div>
+    </div>
+
+    <div id="menu">
+        <h2>메뉴</h2>
+        <h3>광어</h3>
+        <button onclick="addItem('광어(소)', 45000)">광어(소) - 45,000원</button>
+        <button onclick="addItem('광어(중)', 65000)">광어(중) - 65,000원</button>
+        <button onclick="addItem('광어(대)', 85000)">광어(대) - 85,000원</button>
+        <button onclick="addItem('광어 특대', 100000)">광어 특대 - 100,000원</button>
+
+        <h3>우럭</h3>
+        <button onclick="addItem('우럭(소)', 50000)">우럭(소) - 50,000원</button>
+        <button onclick="addItem('우럭(중)', 70000)">우럭(중) - 70,000원</button>
+        <button onclick="addItem('우럭(대)', 90000)">우럭(대) - 90,000원</button>
+
+        <h3>모듬회</h3>
+        <button onclick="addItem('모듬회(소)', 80000)">모듬회(소) - 80,000원</button>
+        <button onclick="addItem('모듬회(중)', 100000)">모듬회(중) - 100,000원</button>
+        <button onclick="addItem('모듬회(대)', 120000)">모듬회(대) - 120,000원</button>
+
+        <h3>싱싱회 (싯가)</h3>
+        <button onclick="addMarketPriceItem('놀래미')">놀래미 - 싯가</button>
+        <button onclick="addMarketPriceItem('도다리')">도다리 - 싯가</button>
+        <button onclick="addMarketPriceItem('농어')">농어 - 싯가</button>
+        <button onclick="addMarketPriceItem('도미')">도미 - 싯가</button>
+        <button onclick="addMarketPriceItem('검성돔')">검성돔 - 싯가</button>
+        <button onclick="addMarketPriceItem('줄돔')">줄돔 - 싯가</button>
+
+        <h3>기타</h3>
+        <button onclick="addItem('멍게', 20000)">멍게 - 20,000원</button>
+        <button onclick="addItem('낙지', 20000)">낙지 - 20,000원</button>
+        <button onclick="addItem('매운탕', 5000)">매운탕 - 5,000원</button>
+
+        <h3>식사류</h3>
+        <button onclick="addItem('생우럭매운탕', 50000)">생우럭매운탕 - 50,000원</button>
+        <button onclick="addItem('회덮밥', 15000)">회덮밥 - 15,000원</button>
+        <button onclick="addItem('회초밥', 15000)">회초밥 - 15,000원</button>
+        <button onclick="addItem('알탕', 15000)">알탕 - 15,000원</button>
+        <button onclick="addItem('대구탕', 15000)">대구탕 - 15,000원</button>
+        <button onclick="addItem('공기밥', 1000)">공기밥 - 1,000원</button>
+        <button onclick="addItem('기타상품', 1000)">기타상품 - 1,000원</button>
+
+        <h3>주류 / 음료</h3>
+        <button onclick="addItem('소주', 4000)">소주 - 4,000원</button>
+        <button onclick="addItem('맥주', 5000)">맥주 - 5,000원</button>
+        <button onclick="addItem('막거리', 4000)">막거리 - 4,000원</button>
+        <button onclick="addItem('청하', 5000)">청하 - 5,000원</button>
+        <button onclick="addItem('백세주', 9000)">백세주 - 9,000원</button>
+        <button onclick="addItem('복분자', 13000)">복분자 - 13,000원</button>
+        <button onclick="addItem('음료수', 2000)">음료수 - 2,000원</button>
+    </div>
+
+    <div id="order">
+        <h2>주문 내역</h2>
+        <p id="currentTable">선택된 테이블 없음</p>
+        <ul id="orderList"></ul>
+        <p>총액: <span id="total">0</span> 원</p>
+        <button onclick="clearOrder()">주문 초기화</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
